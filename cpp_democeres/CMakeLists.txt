@@ -9,14 +9,14 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
-find_package(Ceres REQUIRED)
+find_package(Ceres::ceres REQUIRED)
 find_package(glog REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
 add_executable(demo src/ceres_solver.cpp)
-ament_target_dependencies(demo rclcpp std_msgs Ceres glog)
+ament_target_dependencies(demo rclcpp std_msgs Ceres::ceres glog)
 
 install(TARGETS 
 	demo
