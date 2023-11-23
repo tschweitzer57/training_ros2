@@ -16,10 +16,7 @@ find_package(glog REQUIRED)
 # find_package(<dependency> REQUIRED)
 
 add_executable(demo src/ceres_solver.cpp)
-ament_target_dependencies(demo rclcpp std_msgs Ceres glog)
-
-target_include_directories(demo PRIVATE ${CERES_INCLUDE_DIRS})
-target_link_libraries(demo PRIVATE ${CERES_LIBRARIES})
+ament_target_dependencies(demo rclcpp std_msgs Ceres glog ${CERES_INCLUDE_DIRS} ${CERES_LIBRARIES})
 
 install(TARGETS 
 	demo
