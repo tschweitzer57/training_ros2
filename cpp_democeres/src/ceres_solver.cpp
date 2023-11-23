@@ -52,7 +52,7 @@ private:
 	ceres::Solver::Summary summary;
 	ceres::Solve(options, &problem, &summary);
 	std::cout << summary.BriefReport() << "\n";
-	RCLCPP_INFO(this->get_logger(), "Report '%s'", summary.BriefReport());
+	RCLCPP_INFO(this->get_logger(), "Report '%s'", summary.BriefReport().c_str());
 	std::cout << "x : " << initial_x << " -> " << x << "\n";
 	RCLCPP_INFO(this->get_logger(), "x : %f -> %f", x, initial_x);
 	
