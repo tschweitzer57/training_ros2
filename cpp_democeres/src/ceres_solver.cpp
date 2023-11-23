@@ -16,6 +16,14 @@ using namespace std::chrono_literals;
 
 /* This example creates a subclass of Node and uses std::bind() to register a 
  * member function as a callback from the timer. */
+ 
+ struct CostFunctor {
+		template <typename T>
+		bool operator()(const T* const x, T* residual) const {
+		residual[0] = 10.0 - x[0];
+		return true;
+		}
+	};
 
 class CeresPublisher : public rclcpp::Node
 {
@@ -25,14 +33,6 @@ public:
   {
     publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
     timer_ = this->create_wall_timer(500ms, std::bind(&CeresPublisher::timer_callback, this));
-	
-	struct CostFunctor {
-		template <typename T>
-		bool operator()(const T* const x, T* residual) const {
-		residual[0] = 10.0 - x[0];
-		return true;
-		}
-	};
   }
 
 private:
