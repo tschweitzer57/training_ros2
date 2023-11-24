@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
   std::cout << summary.BriefReport() << "\n";
   std::cout << "x : " << initial_x << " -> " << x << "\n";
   
-  RCLCPP_INFO(this->get_logger(), "x : %f -> %f", x, initial_x);
+  //RCLCPP_INFO(this->get_logger(), "x : %f -> %f", x, initial_x);
   
   rclcpp::shutdown();
   
