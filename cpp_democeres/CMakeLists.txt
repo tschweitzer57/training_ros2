@@ -13,10 +13,10 @@ find_package(Ceres REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+add_executable(helloworld src/helloworld.cpp)
+
 target_link_libraries(helloworld ${CERES_LIBRARIES})
 ament_target_dependencies(demo rclcpp Ceres)
-
-add_executable(helloworld src/helloworld.cpp)
 
 install(TARGETS 
 	demo
