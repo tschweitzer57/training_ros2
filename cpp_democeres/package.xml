@@ -10,10 +10,10 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
   
   <depend>rclcpp</depend>
-  <depend>std_msgs</depend>
-  <depend>glog</depend>
-  <build_depend>ceres</build_depend>
-  <exec_depend>ceres</exec_depend>
+  <depend>ceres</depend>
+  <depend>google</depend>
+  <!-- <build_depend>ceres</build_depend>
+  <exec_depend>ceres</exec_depend> -->
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
