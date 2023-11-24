@@ -16,10 +16,10 @@ find_package(Ceres REQUIRED)
 add_executable(helloworld src/helloworld.cpp)
 
 target_link_libraries(helloworld ${CERES_LIBRARIES})
-ament_target_dependencies(demo rclcpp Ceres)
+ament_target_dependencies(helloworld rclcpp Ceres)
 
 install(TARGETS 
-	demo
+	helloworld
 	DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
