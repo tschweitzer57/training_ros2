@@ -32,7 +32,7 @@ public:
   : Node("ceres_publisher"), count_(0)
   {
     publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
-    timer_ = this->create_wall_timer(500ms, std::bind(&CeresPublisher::timer_callback, this));
+    timer_ = this->create_wall_timer(5000ms, std::bind(&CeresPublisher::timer_callback, this));
   }
 
 private:
@@ -52,9 +52,7 @@ private:
 	ceres::Solver::Summary summary;
 	ceres::Solve(options, &problem, &summary);
 	std::cout << summary.BriefReport() << "\n";
-	RCLCPP_INFO(this->get_logger(), "Report '%s'", summary.BriefReport().c_str());
 	std::cout << "x : " << initial_x << " -> " << x << "\n";
-	RCLCPP_INFO(this->get_logger(), "x : %f -> %f", x, initial_x);
 	
 	auto message = std_msgs::msg::String();
     message.data = "Hello, world !" + std::to_string(count_++);

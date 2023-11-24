@@ -9,17 +9,23 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(Ceres REQUIRED)
+find_package(std_msgs REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
 add_executable(helloworld src/helloworld.cpp)
+add_executable(demo src/ceres_solver.cpp)
 
 target_link_libraries(helloworld ${CERES_LIBRARIES})
+target_link_libraries(demo ${CERES_LIBRARIES})
+
 ament_target_dependencies(helloworld rclcpp Ceres)
+ament_target_dependencies(demo rclcpp Ceres std_msgs)
 
 install(TARGETS 
 	helloworld
+	demo
 	DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
